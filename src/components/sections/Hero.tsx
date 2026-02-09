@@ -25,7 +25,7 @@ export default function Hero() {
           </h2>
           <p className="text-lg text-gray-400 mb-8 max-w-lg">
             High school student passionate about building innovative apps and
-            exploring the frontiers of Artificial Intelligence.
+            exploring Artificial Intelligence.
           </p>
           <div className="flex gap-4">
             <Link
