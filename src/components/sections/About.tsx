@@ -18,14 +18,14 @@ export default function About() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 text-lg text-gray-300">
             <p>
-              Hi! I’m Shree Manickaraja, a high school student with a strong
+              Hi! I’m Shree Manickaraja. I have a strong
               interest in understanding how software and computers work at a
               deeper level. I began my journey with simple scripts and gradually
-              progressed to building full-stack applications, exploring system
-              behavior, and experimenting with machine learning and AI concepts.
+              made it to building full-stack applications, exploring system
+              behavior, and tinkering with machine learning and AI concepts.
             </p>
             <p>
-              I enjoy turning ideas into practical projects and using code to
+              I enjoy turning ideas into real projects that can help people in their daily lives and using code to
               solve real-world problems. I’m especially interested in software
               engineering and applied machine learning, and I’m always motivated
               to learn new technologies and improve my technical skills through
@@ -33,7 +33,7 @@ export default function About() {
             </p>
             <p>
               I’m currently seeking internship opportunities where I can
-              contribute meaningfully, learn from experienced engineers, and
+              make an impact, learn from experienced engineers, and
               continue growing as a developer. Outside of coding, I participate
               in hackathons, stay up to date with emerging technologies, and
               experiment with game development and other creative programming
