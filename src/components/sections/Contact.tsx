@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github, Send, MapPin, Phone } from "lucide-react";
+import { Mail, Linkedin, Github, Youtube, Send, MapPin, Phone } from "lucide-react";
 
 export default function Contact() {
   const [formState, setFormState] = useState({
@@ -89,6 +89,22 @@ export default function Contact() {
                 target="_blank"
               >
                 shreetheman2011
+              </a>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4 text-gray-300">
+            <div className="p-3 bg-gray-800 rounded-lg text-red-500">
+              <Youtube size={24} />
+            </div>
+            <div>
+              <h3 className="font-semibold text-white">YouTube</h3>
+              <a
+                href="https://www.youtube.com/channel/UCYE40Cl3gPXuqXHJRiMvzqw"
+                className="hover:text-red-400 transition-colors"
+                target="_blank"
+              >
+                Shree Manickaraja
               </a>
             </div>
           </div>
