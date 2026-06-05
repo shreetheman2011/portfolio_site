@@ -14,9 +14,47 @@ export interface Project {
   backendSourceCode?: string;
   webDemo?: string;
   mobileApp?: boolean;
+  demoLabel?: string;
+  status?: string;
+  availability?: string;
 }
 
 export const projects: Project[] = [
+  {
+    id: "bookiq",
+    title: "BookIQ AI",
+    shortDescription:
+      "A published iOS app that turns book and bookshelf scans into personalized recommendations, reading-level insights, deeper analysis, adaptation details, and community reviews.",
+    fullDescription:
+      "BookIQ AI is an App Store-published reading discovery app built to make choosing your next book feel instant and personal. Users can scan a single book to get useful context like reading level, recommendations, deeper analysis, and movie or series adaptation info. They can also scan an entire bookshelf so BookIQ can understand their taste from the books they already own or browse, then recommend titles they are more likely to enjoy. The app combines camera-based discovery, genre preferences, ratings, reviews, and AI-assisted book intelligence into one mobile-first experience for readers who want better recommendations without digging through endless lists.",
+    tags: [
+      "iOS",
+      "AI Recommendations",
+      "Camera Scanning",
+      "Book Discovery",
+      "Reviews",
+      "Reading Analytics",
+      "App Store",
+      "Mobile App Development",
+      "App Dev",
+    ],
+    demo: "https://apps.apple.com/us/app/bookiq-ai/id6763798088",
+    demoLabel: "App Store",
+    status: "Published on the App Store",
+    availability: "Free iOS app in the Books category.",
+    mobileApp: true,
+    color: "from-amber-400 via-rose-500 to-fuchsia-500",
+    features: [
+      "Scan any book to unlock personalized recommendations and useful reading context",
+      "Scan a bookshelf to infer reading taste from a real collection",
+      "Reading-level insights, deeper analysis, and adaptation information",
+      "Favorite-genre personalization that improves recommendations over time",
+      "Ratings, written reviews, and community feedback before starting a book",
+      "A polished mobile reading-discovery flow designed for fast decisions",
+    ],
+    challenges:
+      "The core product challenge was turning messy real-world book discovery into a smooth mobile experience. BookIQ needs to feel useful after one scan, but it also has to build a richer taste profile over time from genres, scanned books, bookshelf context, ratings, and reviews. Designing that flow meant balancing quick camera-based lookup, personalized recommendation logic, book metadata, and a clean App Store-ready user experience.",
+  },
   {
     id: "ai-study-companion",
     title: "AutoCourse, AI Study Companion",

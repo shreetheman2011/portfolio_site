@@ -2,33 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Github, ExternalLink } from 'lucide-react';
-
-const projects = [
-  {
-    title: "AI Study Companion",
-    description: "An intelligent study assistant that uses NLP to generate flashcards and summaries from lecture notes. Built with Next.js and OpenAI API.",
-    tags: ["Next.js", "OpenAI API", "Tailwind CSS", "PostgreSQL"],
-    github: "#",
-    demo: "#",
-    color: "from-blue-500 to-cyan-500"
-  },
-  {
-    title: "EcoTrack",
-    description: "A mobile-first web app to track personal carbon footprint and suggest eco-friendly habits. Gamified with leaderboards.",
-    tags: ["React", "Firebase", "Chart.js", "PWA"],
-    github: "#",
-    demo: "#",
-    color: "from-green-500 to-emerald-500"
-  },
-  {
-    title: "Hand Gesture Controller",
-    description: "A Python application that uses computer vision to control system volume and media playback using hand gestures.",
-    tags: ["Python", "OpenCV", "MediaPipe", "PyAutoGUI"],
-    github: "#",
-    demo: "#",
-    color: "from-purple-500 to-pink-500"
-  }
-];
+import { projects } from '@/data/projects';
 
 export default function Projects() {
   return (
@@ -56,22 +30,29 @@ export default function Projects() {
               <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors">
                 {project.title}
               </h3>
+              {project.status && (
+                <p className="mb-3 inline-flex rounded-full border border-amber-400/30 bg-amber-400/10 px-3 py-1 text-xs font-semibold text-amber-200">
+                  {project.status}
+                </p>
+              )}
               <p className="text-gray-400 mb-4 h-24 overflow-hidden">
-                {project.description}
+                {project.shortDescription}
               </p>
               <div className="flex flex-wrap gap-2 mb-6">
-                {project.tags.map(tag => (
+                {project.tags.slice(0, 4).map(tag => (
                   <span key={tag} className="text-xs px-2 py-1 bg-gray-800 rounded-md text-gray-300">
                     {tag}
                   </span>
                 ))}
               </div>
               <div className="flex gap-4">
-                <a href={project.github} className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
-                  <Github size={18} /> Code
-                </a>
+                {project.github && (
+                  <a href={project.github} className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
+                    <Github size={18} /> Code
+                  </a>
+                )}
                 <a href={project.demo} className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
-                  <ExternalLink size={18} /> Demo
+                  <ExternalLink size={18} /> {project.demoLabel ?? 'Demo'}
                 </a>
               </div>
             </div>

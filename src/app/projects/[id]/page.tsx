@@ -1,6 +1,6 @@
 "use client";
 
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { ArrowLeft, Github, ExternalLink } from "lucide-react";
 import Navbar from "@/components/ui/Navbar";
@@ -9,7 +9,6 @@ import Link from "next/link";
 
 export default function ProjectDetail() {
   const params = useParams();
-  const router = useRouter();
   const id = params?.id as string;
 
   const project = projects.find((p) => p.id === id);
@@ -49,6 +48,11 @@ export default function ProjectDetail() {
           <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-linear-to-r from-white to-gray-400">
             {project.title}
           </h1>
+          {project.status && (
+            <p className="mb-6 inline-flex rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-2 text-sm font-semibold text-amber-200">
+              {project.status}
+            </p>
+          )}
 
           <div className="flex flex-wrap gap-4 mb-8">
             {project.github && (
@@ -97,12 +101,13 @@ export default function ProjectDetail() {
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 bg-blue-600 rounded-full hover:bg-blue-700 transition-colors"
             >
-              <ExternalLink size={18} /> Live {project.mobileApp && "Web"} Demo
+              <ExternalLink size={18} />{" "}
+              {project.demoLabel ??
+                `Live ${project.mobileApp ? "Web " : ""}Demo`}
             </a>
-            {project.mobileApp && (
-              <p className="flex items-center gap-2 px-4 py-2 bg-green-600 rounded-full hover:bg-green-700 transition-colors">
-                This app is a mobile app. Demo is available on Play Store and
-                App Store. NAAM has a web demo as well.
+            {project.availability && (
+              <p className="flex items-center gap-2 px-4 py-2 bg-green-600 rounded-full text-sm text-white">
+                {project.availability}
               </p>
             )}
           </div>
