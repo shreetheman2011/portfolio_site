@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github, Youtube, Send, MapPin, Phone } from "lucide-react";
+import { Github, Linkedin, MapPin, Send, Youtube } from "lucide-react";
 
 export default function Contact() {
   const [formState, setFormState] = useState({
@@ -40,7 +40,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 px-8 max-w-7xl mx-auto">
+    <section id="contact" className="py-16 sm:py-20 px-6 sm:px-8 max-w-7xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -50,26 +50,26 @@ export default function Contact() {
         {/* Contact Info */}
         <div className="space-y-8">
           <div>
-            <h2 className="text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-              Let's Connect
+            <h2 className="font-editorial text-4xl sm:text-5xl mb-6 text-ink">
+              Let’s Connect
             </h2>
-            <p className="text-gray-400 text-lg leading-relaxed">
-              I'm always open to discussing new projects, creative ideas, or
+            <p className="text-muted text-lg leading-relaxed">
+              I’m always open to discussing new projects, creative ideas, or
               opportunities to be part of your visions. Whether you have a
-              question or just want to say hi, I'll try my absolute best to get
+              question or just want to say hi, I’ll try my absolute best to get
               back to you!
             </p>
           </div>
 
-          <div className="flex items-start gap-4 text-gray-300">
-            <div className="p-3 bg-gray-800 rounded-lg text-purple-400">
+          <div className="flex items-start gap-4 text-muted">
+            <div className="p-3 bg-wash border border-line rounded-xl text-accent">
               <Linkedin size={24} />
             </div>
             <div>
-              <h3 className="font-semibold text-white">LinkedIn</h3>
+              <h3 className="font-semibold text-ink">LinkedIn</h3>
               <a
                 href="https://www.linkedin.com/in/shree-manickaraja-2a2963372/"
-                className="hover:text-purple-400 transition-colors"
+                className="hover:text-ink underline decoration-line transition-colors"
                 target="_blank"
               >
                 Shree Manickaraja
@@ -77,15 +77,15 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="flex items-start gap-4 text-gray-300">
-            <div className="p-3 bg-gray-800 rounded-lg text-gray-400">
+          <div className="flex items-start gap-4 text-muted">
+            <div className="p-3 bg-wash border border-line rounded-xl text-muted">
               <Github size={24} />
             </div>
             <div>
-              <h3 className="font-semibold text-white">GitHub</h3>
+              <h3 className="font-semibold text-ink">GitHub</h3>
               <a
                 href="https://github.com/shreetheman2011"
-                className="hover:text-white transition-colors"
+                className="hover:text-ink underline decoration-line transition-colors"
                 target="_blank"
               >
                 shreetheman2011
@@ -93,15 +93,15 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="flex items-start gap-4 text-gray-300">
-            <div className="p-3 bg-gray-800 rounded-lg text-red-500">
+          <div className="flex items-start gap-4 text-muted">
+            <div className="p-3 bg-wash border border-line rounded-xl text-accent">
               <Youtube size={24} />
             </div>
             <div>
-              <h3 className="font-semibold text-white">YouTube</h3>
+              <h3 className="font-semibold text-ink">YouTube</h3>
               <a
                 href="https://www.youtube.com/channel/UCYE40Cl3gPXuqXHJRiMvzqw"
-                className="hover:text-red-400 transition-colors"
+                className="hover:text-ink underline decoration-line transition-colors"
                 target="_blank"
               >
                 Shree Manickaraja
@@ -109,12 +109,12 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="flex items-start gap-4 text-gray-300">
-            <div className="p-3 bg-gray-800 rounded-lg text-green-400">
+          <div className="flex items-start gap-4 text-muted">
+            <div className="p-3 bg-wash border border-line rounded-xl text-accent-2">
               <MapPin size={24} />
             </div>
             <div>
-              <h3 className="font-semibold text-white">Location</h3>
+              <h3 className="font-semibold text-ink">Location</h3>
               <p>Livermore, CA</p>
             </div>
           </div>
@@ -125,13 +125,13 @@ export default function Contact() {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="bg-gray-900 p-8 rounded-2xl border border-gray-800"
+          className="bg-paper/80 p-8 rounded-2xl border border-line"
         >
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-medium text-gray-400 mb-2"
+                className="block text-sm font-medium text-muted mb-2"
               >
                 Name
               </label>
@@ -143,7 +143,7 @@ export default function Contact() {
                 onChange={(e) =>
                   setFormState({ ...formState, name: e.target.value })
                 }
-                className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-white transition-all"
+                className="w-full px-4 py-3 bg-paper border border-line rounded-xl focus:ring-2 focus:ring-accent/30 focus:border-accent outline-none text-ink placeholder:text-muted/70 transition-all"
                 placeholder="John Doe"
               />
             </div>
@@ -151,7 +151,7 @@ export default function Contact() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-400 mb-2"
+                className="block text-sm font-medium text-muted mb-2"
               >
                 Email
               </label>
@@ -163,7 +163,7 @@ export default function Contact() {
                 onChange={(e) =>
                   setFormState({ ...formState, email: e.target.value })
                 }
-                className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-white transition-all"
+                className="w-full px-4 py-3 bg-paper border border-line rounded-xl focus:ring-2 focus:ring-accent/30 focus:border-accent outline-none text-ink placeholder:text-muted/70 transition-all"
                 placeholder="john@example.com"
               />
             </div>
@@ -171,7 +171,7 @@ export default function Contact() {
             <div>
               <label
                 htmlFor="message"
-                className="block text-sm font-medium text-gray-400 mb-2"
+                className="block text-sm font-medium text-muted mb-2"
               >
                 Message
               </label>
@@ -183,7 +183,7 @@ export default function Contact() {
                 onChange={(e) =>
                   setFormState({ ...formState, message: e.target.value })
                 }
-                className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-white transition-all resize-none"
+                className="w-full px-4 py-3 bg-paper border border-line rounded-xl focus:ring-2 focus:ring-accent/30 focus:border-accent outline-none text-ink placeholder:text-muted/70 transition-all resize-none"
                 placeholder="Your message here..."
               />
             </div>
@@ -191,12 +191,12 @@ export default function Contact() {
             <button
               type="submit"
               disabled={status === "sending"}
-              className={`cursor-pointer w-full py-4 rounded-lg font-bold text-white flex items-center justify-center gap-2 transition-all ${
+              className={`w-full py-4 rounded-xl font-semibold text-paper flex items-center justify-center gap-2 transition-colors ${
                 status === "success"
-                  ? "cursor-default! bg-green-600 hover:bg-green-700"
+                  ? "bg-accent-2"
                   : status === "error"
-                  ? "bg-red-600 hover:bg-red-700"
-                  : "bg-linear-to-r from-blue-600 to-purple-600 hover:opacity-90"
+                  ? "bg-accent"
+                  : "bg-ink hover:bg-ink/90"
               } ${status === "sending" ? "opacity-70 cursor-not-allowed" : ""}`}
             >
               {status === "success" ? (

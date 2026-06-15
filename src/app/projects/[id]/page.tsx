@@ -15,10 +15,10 @@ export default function ProjectDetail() {
 
   if (!project) {
     return (
-      <main className="min-h-screen bg-black text-white pt-32 flex flex-col items-center">
+      <main className="min-h-screen pt-32 flex flex-col items-center">
         <Navbar />
         <h1 className="text-3xl font-bold mb-4">Project not found</h1>
-        <Link href="/projects" className="text-blue-400 hover:underline">
+        <Link href="/projects" className="text-accent hover:underline">
           Back to Projects
         </Link>
       </main>
@@ -26,12 +26,12 @@ export default function ProjectDetail() {
   }
 
   return (
-    <main className="min-h-screen bg-black text-white pt-24">
+    <main className="min-h-screen pt-24">
       <Navbar />
-      <article className="max-w-4xl mx-auto px-8 py-10">
+      <article className="max-w-4xl mx-auto px-6 sm:px-8 py-10">
         <Link
           href="/projects"
-          className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors"
+          className="inline-flex items-center gap-2 text-muted hover:text-ink mb-8 transition-colors"
         >
           <ArrowLeft size={20} /> Back to Projects
         </Link>
@@ -45,11 +45,11 @@ export default function ProjectDetail() {
             className={`h-2 w-full bg-linear-to-r ${project.color} rounded-full mb-8`}
           />
 
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-linear-to-r from-white to-gray-400">
+          <h1 className="font-editorial text-4xl md:text-5xl font-semibold mb-6 text-ink">
             {project.title}
           </h1>
           {project.status && (
-            <p className="mb-6 inline-flex rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-2 text-sm font-semibold text-amber-200">
+            <p className="mb-6 inline-flex rounded-full border border-accent/25 bg-accent/10 px-4 py-2 text-sm font-semibold text-accent">
               {project.status}
             </p>
           )}
@@ -60,7 +60,7 @@ export default function ProjectDetail() {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-full hover:bg-gray-700 transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-wash border border-line rounded-full hover:bg-paper transition-colors"
               >
                 <Github size={18} /> Source Code
               </a>
@@ -70,7 +70,7 @@ export default function ProjectDetail() {
                 href={project.mobileSourceCode}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-2 py-2 bg-gray-800 rounded-full hover:bg-gray-700 transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-wash border border-line rounded-full hover:bg-paper transition-colors"
               >
                 <Github size={18} /> Mobile Source Code
               </a>
@@ -80,7 +80,7 @@ export default function ProjectDetail() {
                 href={project.webSourceCode}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-full hover:bg-gray-700 transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-wash border border-line rounded-full hover:bg-paper transition-colors"
               >
                 <Github size={18} /> Web Source Code
               </a>
@@ -90,7 +90,7 @@ export default function ProjectDetail() {
                 href={project.backendSourceCode}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-full hover:bg-gray-700 transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-wash border border-line rounded-full hover:bg-paper transition-colors"
               >
                 <Github size={18} /> Backend Source Code
               </a>
@@ -99,14 +99,14 @@ export default function ProjectDetail() {
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-blue-600 rounded-full hover:bg-blue-700 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-ink text-paper rounded-full hover:bg-ink/90 transition-colors"
             >
               <ExternalLink size={18} />{" "}
               {project.demoLabel ??
                 `Live ${project.mobileApp ? "Web " : ""}Demo`}
             </a>
             {project.availability && (
-              <p className="flex items-center gap-2 px-4 py-2 bg-green-600 rounded-full text-sm text-white">
+              <p className="flex items-center gap-2 px-4 py-2 bg-accent-2 rounded-full text-sm text-paper">
                 {project.availability}
               </p>
             )}
@@ -116,16 +116,16 @@ export default function ProjectDetail() {
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-3 py-1 bg-gray-900 border border-gray-800 rounded-md text-sm text-gray-300"
+                className="px-3 py-1 bg-paper/70 border border-line rounded-md text-sm text-muted"
               >
                 {tag}
               </span>
             ))}
           </div>
 
-          <div className="space-y-10 text-lg text-gray-300 leading-relaxed">
+          <div className="space-y-10 text-lg text-muted leading-relaxed">
             <section>
-              <h2 className="text-2xl font-semibold text-white mb-4">
+              <h2 className="font-editorial text-2xl font-semibold text-ink mb-4">
                 Overview
               </h2>
               <p>{project.fullDescription}</p>
@@ -133,11 +133,11 @@ export default function ProjectDetail() {
 
             {/* WasteEasy Lite / coming-soon callout */}
             {project.comingSoon && (
-              <div className="flex items-start gap-3 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 px-6 py-5">
-                <Sparkles size={20} className="mt-0.5 shrink-0 text-emerald-400" />
+              <div className="flex items-start gap-3 rounded-2xl border border-accent-2/25 bg-accent-2/10 px-6 py-5">
+                <Sparkles size={20} className="mt-0.5 shrink-0 text-accent-2" />
                 <div>
-                  <p className="text-sm font-bold uppercase tracking-widest text-emerald-500 mb-1">Coming Soon</p>
-                  <p className="font-bold leading-relaxed text-emerald-300 text-base">
+                  <p className="text-sm font-bold uppercase tracking-widest text-accent-2 mb-1">Coming Soon</p>
+                  <p className="font-bold leading-relaxed text-accent-2 text-base">
                     {project.comingSoon}
                   </p>
                 </div>
@@ -145,7 +145,7 @@ export default function ProjectDetail() {
             )}
 
             <section>
-              <h2 className="text-2xl font-semibold text-white mb-4">
+              <h2 className="font-editorial text-2xl font-semibold text-ink mb-4">
                 Key Features
               </h2>
               <ul className="list-disc pl-6 space-y-2">
@@ -157,7 +157,7 @@ export default function ProjectDetail() {
 
             {project.challenges && (
               <section>
-                <h2 className="text-2xl font-semibold text-white mb-4">
+                <h2 className="font-editorial text-2xl font-semibold text-ink mb-4">
                   Challenges & Solutions
                 </h2>
                 <p>{project.challenges}</p>

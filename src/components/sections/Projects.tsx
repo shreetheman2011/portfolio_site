@@ -13,27 +13,27 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.15 }}
       viewport={{ once: true }}
-      className="group relative bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 hover:border-gray-700 transition-all flex flex-col"
+      className="group relative bg-paper rounded-2xl overflow-hidden border border-line hover:bg-wash transition-colors flex flex-col"
     >
       <div className={`h-2 w-full bg-gradient-to-r ${project.color}`} />
       <div className="p-6 flex flex-col flex-1">
-        <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors">
+        <h3 className="text-2xl font-semibold mb-3 text-ink group-hover:text-accent transition-colors">
           {project.title}
         </h3>
         {project.status && (
-          <p className="mb-3 inline-flex self-start rounded-full border border-amber-400/30 bg-amber-400/10 px-3 py-1 text-xs font-semibold text-amber-200">
+          <p className="mb-3 inline-flex self-start rounded-full border border-accent/25 bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
             {project.status}
           </p>
         )}
-        <p className="text-gray-400 mb-4 flex-1">
+        <p className="text-muted mb-4 flex-1">
           {project.shortDescription}
         </p>
 
         {/* Coming Soon callout */}
         {project.comingSoon && (
-          <div className="mb-4 flex items-start gap-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3">
-            <Sparkles size={16} className="mt-0.5 shrink-0 text-emerald-400" />
-            <p className="text-xs font-bold leading-relaxed text-emerald-300">
+          <div className="mb-4 flex items-start gap-2 rounded-xl border border-accent-2/25 bg-accent-2/10 px-4 py-3">
+            <Sparkles size={16} className="mt-0.5 shrink-0 text-accent-2" />
+            <p className="text-xs font-bold leading-relaxed text-accent-2">
               {project.comingSoon}
             </p>
           </div>
@@ -41,29 +41,29 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
         <div className="flex flex-wrap gap-2 mb-6">
           {project.tags.slice(0, 4).map(tag => (
-            <span key={tag} className="text-xs px-2 py-1 bg-gray-800 rounded-md text-gray-300">
+            <span key={tag} className="text-xs px-2 py-1 bg-wash border border-line rounded-md text-muted">
               {tag}
             </span>
           ))}
         </div>
         <div className="flex gap-4">
           {project.github && (
-            <a href={project.github} className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
+            <a href={project.github} className="flex items-center gap-2 text-sm text-muted hover:text-ink transition-colors">
               <Github size={18} /> Code
             </a>
           )}
           {project.mobileSourceCode && (
-            <a href={project.mobileSourceCode} className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
+            <a href={project.mobileSourceCode} className="flex items-center gap-2 text-sm text-muted hover:text-ink transition-colors">
               <Github size={18} /> Mobile
             </a>
           )}
           {project.demo && project.demo !== '#' && (
-            <a href={project.demo} className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
+            <a href={project.demo} className="flex items-center gap-2 text-sm text-muted hover:text-ink transition-colors">
               <ExternalLink size={18} /> {project.demoLabel ?? 'Demo'}
             </a>
           )}
           {project.demo === '#' && project.demoLabel && (
-            <span className="flex items-center gap-2 text-sm text-gray-600 cursor-default select-none">
+            <span className="flex items-center gap-2 text-sm text-muted/70 cursor-default select-none">
               <ExternalLink size={18} /> {project.demoLabel}
             </span>
           )}
@@ -93,26 +93,26 @@ function SectionHeader({
       className="mb-8"
     >
       <div className="flex items-center gap-3 mb-2">
-        <span className="flex items-center justify-center w-9 h-9 rounded-xl bg-gray-800 border border-gray-700 text-white">
+        <span className="flex items-center justify-center w-9 h-9 rounded-xl bg-paper border border-line text-ink">
           {icon}
         </span>
-        <h3 className="text-2xl font-bold text-white">{title}</h3>
+        <h3 className="text-2xl font-semibold text-ink">{title}</h3>
       </div>
-      <p className="text-gray-500 text-sm ml-12">{subtitle}</p>
-      <div className="mt-4 ml-12 h-px bg-gradient-to-r from-gray-700 to-transparent" />
+      <p className="text-muted text-sm ml-12">{subtitle}</p>
+      <div className="mt-4 ml-12 h-px bg-gradient-to-r from-line to-transparent" />
     </motion.div>
   );
 }
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 px-8 max-w-7xl mx-auto">
+    <section id="projects" className="py-16 sm:py-20 px-6 sm:px-8 max-w-7xl mx-auto">
       {/* Main heading */}
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-4xl font-bold mb-4 text-center text-white"
+        className="font-editorial text-4xl sm:text-5xl mb-4 text-center text-ink"
       >
         Projects & Work
       </motion.h2>
@@ -121,7 +121,7 @@ export default function Projects() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
         viewport={{ once: true }}
-        className="text-center text-gray-500 mb-16 max-w-xl mx-auto"
+        className="text-center text-muted mb-16 max-w-xl mx-auto"
       >
         A collection of apps, content, and writing across different disciplines.
       </motion.p>

@@ -5,18 +5,18 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <section id="about" className="py-20 px-8 max-w-7xl mx-auto">
+    <section id="about" className="py-16 sm:py-20 px-6 sm:px-8 max-w-7xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-4xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
+        <h2 className="font-editorial text-4xl sm:text-5xl mb-10 text-center text-ink">
           About Me
         </h2>
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6 text-lg text-gray-300">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6 text-lg text-muted leading-relaxed">
             <p>
               Hi! I’m Shree Manickaraja. I have a strong
               interest in understanding how software and computers work at a
@@ -47,41 +47,41 @@ export default function About() {
                 alt="Shree Manickaraja"
                 width={200}
                 height={200}
-                className="rounded-xl ring-4 ring-blue-500/40 shadow-xl"
+                className="rounded-2xl ring-1 ring-line shadow-[0_14px_50px_rgba(0,0,0,0.12)]"
               />
             </div>
-            <div className="bg-gray-900 p-8 rounded-2xl border border-gray-800 hover:border-blue-500 transition-colors">
-              <h3 className="text-2xl font-semibold mb-4 text-white">
+            <div className="bg-paper/80 p-8 rounded-2xl border border-line hover:bg-wash transition-colors">
+              <h3 className="font-editorial text-2xl font-semibold mb-4 text-ink">
                 Education
               </h3>
               <div className="mb-4">
-                <h4 className="text-xl font-medium text-blue-400">
+                <h4 className="text-xl font-semibold text-accent">
                   High School
                 </h4>
-                <p className="text-gray-400">Expected Graduation: 2029</p>
-                <p className="text-gray-500 text-sm mt-1">
+                <p className="text-muted">Expected Graduation: 2029</p>
+                <p className="text-muted text-sm mt-1">
                   Relevant Coursework: Algebra 2, AP Computer Science
                 </p>
 
-                <p className="text-gray-500 text-sm mt-1">
+                <p className="text-muted text-sm mt-1">
                   Relevant Extracurriculars: FRC Robotics Programming Team(as
                   well as Drive Coach)
                 </p>
-                <p className="text-green-500 text-sm mt-1">GPA: 4.0</p>
+                <p className="text-accent-2 text-sm mt-1">GPA: 4.0</p>
               </div>
               <div className="mb-4">
-                <h4 className="text-xl font-medium text-blue-400">
+                <h4 className="text-xl font-semibold text-accent">
                   Middle School
                 </h4>
-                <p className="text-gray-400">Graduated: 2025</p>
-                <p className="text-gray-500 text-sm mt-1">
+                <p className="text-muted">Graduated: 2025</p>
+                <p className="text-muted text-sm mt-1">
                   Relevant Coursework: Pre-Algebra, Algebra 1
                 </p>
-                <p className="text-gray-500 text-sm mt-1">
+                <p className="text-muted text-sm mt-1">
                   Relevant Extracurriculars: Girls Who Code
                 </p>
               </div>
-              <p className="text-green-500 text-sm mt-1">GPA: 4.0</p>
+              <p className="text-accent-2 text-sm mt-1">GPA: 4.0</p>
             </div>
           </div>
         </div>

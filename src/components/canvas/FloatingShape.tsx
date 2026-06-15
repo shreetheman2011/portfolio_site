@@ -54,7 +54,7 @@ export default function FloatingShape() {
       >
         <div className="relative bg-white/90 backdrop-blur-sm text-black px-4 py-2 rounded-2xl rounded-bl-none shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-blue-200 animate-pulse">
           <p className="font-bold text-sm whitespace-nowrap flex items-center gap-2">
-            A big ol' blob 😁
+            A big ol’ blob 😁
           </p>
           {/* Speech bubble arrow */}
           {/* <div className="absolute -bottom-2 left-0 w-4 h-4 bg-white/90 transform rotate-45 border-r border-b border-blue-200"></div> */}

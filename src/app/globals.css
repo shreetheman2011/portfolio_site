@@ -1,19 +1,59 @@
 @import "tailwindcss";
 
 :root {
-  --background: #050505;
-  --foreground: #ededed;
-}
+  /* Warm, editorial palette (light, not-too-saccharine) */
+  --paper: #fbf4ea;
+  --wash: #f3e9db;
+  --ink: #1f1a14;
+  --muted: #6f6256;
+  --line: rgba(31, 26, 20, 0.12);
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
+  /* Accents */
+  --accent: #b45b3d; /* terracotta */
+  --accent-2: #2f6b5b; /* deep green */
 }
 
 @theme inline {
-  --color-primary: #3b82f6;
-  --color-secondary: #8b5cf6;
-  --color-accent: #10b981;
+  --color-paper: var(--paper);
+  --color-wash: var(--wash);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: radial-gradient(1200px 800px at 20% 10%, #fff7ee 0%, transparent 55%),
+    radial-gradient(900px 700px at 85% 20%, #f7efe1 0%, transparent 52%),
+    var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system,
+    Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  overflow-x: hidden;
+}
+
+/* Editorial typography helpers */
+.font-editorial {
+  font-family: var(--font-editorial), ui-serif, Georgia, Cambria,
+    "Times New Roman", Times, serif;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 20%, white);
+}
+
+a {
+  text-underline-offset: 3px;
 }
