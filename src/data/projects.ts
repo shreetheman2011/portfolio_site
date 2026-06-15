@@ -17,6 +17,8 @@ export interface Project {
   demoLabel?: string;
   status?: string;
   availability?: string;
+  category?: 'featured' | 'content' | 'publications';
+  comingSoon?: string; // bold callout text
 }
 
 export const projects: Project[] = [
@@ -43,6 +45,7 @@ export const projects: Project[] = [
     status: "Published on the App Store",
     availability: "Free iOS app in the Books category.",
     mobileApp: true,
+    category: "featured",
     color: "from-amber-400 via-rose-500 to-fuchsia-500",
     features: [
       "Scan any book to unlock personalized recommendations and useful reading context",
@@ -74,6 +77,7 @@ export const projects: Project[] = [
     ],
     github: "https://github.com/shreetheman2011/AutoCourse",
     demo: "https://auto-course-studytools.vercel.app",
+    category: "featured",
     color: "from-blue-500 to-cyan-500",
     features: [
       "Automatic flashcard generation from text",
@@ -106,7 +110,10 @@ export const projects: Project[] = [
     ],
     github: "https://github.com/shreetheman2011/wasteEasy",
     demo: "https://waste-easy.vercel.app",
+    category: "featured",
     color: "from-green-500 to-emerald-500",
+    comingSoon:
+      "WasteEasy Lite is coming soon — a robotics evolution featuring a never-before-seen sorting mechanism. Put it on the tray and walk away. It uses computer vision to automatically classify your waste and route it into the correct bin through a precision trapdoor system.",
     features: [
       "Waste reporting and collection",
       "Incentive-based program for waste reduction",
@@ -145,6 +152,7 @@ export const projects: Project[] = [
     webSourceCode: "https://github.com/teamncna/naam.github.io",
     backendSourceCode: "https://github.com/teamncna/naam-backend",
     demo: "https://teamncna.github.io/naam.github.io",
+    category: "featured",
     color: "from-orange-500 to-red-500",
     features: [
       "Secure mobile address book for community members",
@@ -157,4 +165,83 @@ export const projects: Project[] = [
     challenges:
       "The biggest challenge was ensuring enterprise-grade security while handling highly sensitive personal data for a real community. I spent days and weeks designing, implementing, and testing encrypted storage, secure authentication, and backend safeguards to prevent data leaks. Scaling the architecture to support thousands of users while maintaining privacy, trust, and performance was a critical technical and ethical responsibility.",
   },
+  {
+    id: "compile-after-class",
+    title: "Compile After Class",
+    shortDescription:
+      "A podcast where I break down the real side of building software as a student — featuring guest conversations, project deep-dives, the tech industry, and the intersection of code and life.",
+    fullDescription:
+      "Compile After Class is a podcast hosted by me, exploring what it actually looks like to build software, learn to code, and navigate the tech world as a student. We bring guests on — developers, founders, and people doing interesting things in tech — for honest conversations about real projects, the lessons that only come from shipping things, and what it means to grow as a developer while still in school. The name is a nod to the build step every programmer knows — the moment after the work is done where you find out if it all holds together.",
+    tags: [
+      "Podcast",
+      "Technology",
+      "Student Developer",
+      "Software Engineering",
+      "Content Creation",
+    ],
+    demo: "https://www.youtube.com/@shreemanickaraja",
+    demoLabel: "Watch on YouTube",
+    category: "content",
+    color: "from-purple-500 to-indigo-600",
+    features: [
+      "Real talk on building software as a student",
+      "Deep dives into personal projects and what they taught me",
+      "Perspectives on the tech industry, career paths, and developer culture",
+      "Honest, unfiltered episodes — no fluff",
+    ],
+  },
+  {
+    id: "shared-oxygen",
+    title: "Shared Oxygen",
+    shortDescription:
+      "A science fiction novel exploring what happens when the boundaries of survival, identity, and human connection collapse aboard an isolated deep-space station.",
+    fullDescription:
+      "Shared Oxygen is a science fiction novel set aboard a deteriorating deep-space research station where a small crew must confront a crisis that forces them to question what they owe each other when resources run out. The story weaves themes of survival, moral tension, and the fragile systems — biological and social — that keep people alive. Equal parts thriller and character study, it explores what it means to share more than air with the people you're stuck with.",
+    tags: [
+      "Science Fiction",
+      "Novel",
+      "Author",
+      "Fiction",
+    ],
+    demo: "https://www.amazon.com/Shared-Oxygen-Trust-One-Yourself/dp/B0GZKFH3RZ/",
+    demoLabel: "Buy on Amazon",
+    category: "publications",
+    color: "from-slate-500 via-blue-600 to-indigo-700",
+    features: [
+      "Science fiction set in deep space",
+      "Character-driven survival narrative",
+      "Themes of identity, moral conflict, and human connection",
+      "Full-length novel",
+    ],
+  },
+  {
+    id: "project-py-fundamentals",
+    title: "Project Py: Fundamentals",
+    shortDescription:
+      "A beginner-friendly Python programming book written to make the fundamentals of coding actually click — built from the ground up to be clear, practical, and approachable.",
+    fullDescription:
+      "Project Py: Fundamentals is a Python programming book aimed at beginners who want to learn to code without drowning in jargon. Written from a student's perspective, it focuses on clarity and practical examples over theory-heavy explanations. The book walks readers through the core concepts of Python in a way that is structured to actually build intuition — not just pattern-match syntax. It reflects the way I wish I had learned to code when I was starting out.",
+    tags: [
+      "Python",
+      "Programming",
+      "Education",
+      "Non-Fiction",
+      "Author",
+    ],
+    demo: "https://www.amazon.com/Project-Py-Foundations-Beginner-Friendly-Programming/dp/B0GC5LJCM8/",
+    demoLabel: "Buy on Amazon",
+    category: "publications",
+    color: "from-yellow-400 via-orange-500 to-rose-500",
+    features: [
+      "Beginner-friendly Python curriculum",
+      "Written from a student's perspective",
+      "Practical, example-driven learning",
+      "Clear explanations over jargon-heavy theory",
+      "Full-length programming book",
+    ],
+  },
 ];
+
+export const featuredProjects = projects.filter(p => p.category === 'featured');
+export const contentProjects = projects.filter(p => p.category === 'content');
+export const publicationProjects = projects.filter(p => p.category === 'publications');

@@ -2,7 +2,7 @@
 
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
-import { ArrowLeft, Github, ExternalLink } from "lucide-react";
+import { ArrowLeft, Github, ExternalLink, Sparkles } from "lucide-react";
 import Navbar from "@/components/ui/Navbar";
 import { projects } from "@/data/projects";
 import Link from "next/link";
@@ -130,6 +130,19 @@ export default function ProjectDetail() {
               </h2>
               <p>{project.fullDescription}</p>
             </section>
+
+            {/* WasteEasy Lite / coming-soon callout */}
+            {project.comingSoon && (
+              <div className="flex items-start gap-3 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 px-6 py-5">
+                <Sparkles size={20} className="mt-0.5 shrink-0 text-emerald-400" />
+                <div>
+                  <p className="text-sm font-bold uppercase tracking-widest text-emerald-500 mb-1">Coming Soon</p>
+                  <p className="font-bold leading-relaxed text-emerald-300 text-base">
+                    {project.comingSoon}
+                  </p>
+                </div>
+              </div>
+            )}
 
             <section>
               <h2 className="text-2xl font-semibold text-white mb-4">
