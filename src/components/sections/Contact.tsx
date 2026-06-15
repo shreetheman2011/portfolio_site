@@ -115,7 +115,7 @@ export default function Contact() {
             </div>
             <div>
               <h3 className="font-semibold text-ink">Location</h3>
-              <p>Livermore, CA</p>
+              <p>San Francisco Bay Area</p>
             </div>
           </div>
         </div>
