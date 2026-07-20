@@ -6,6 +6,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const STORAGE_KEY = "bgMusicPreference";
+const PROMPT_HIDDEN_KEY = "bgMusicPromptHidden";
 
 // NOTE:
 // You can (and should) replace this with a legally obtained audio file you own the rights to.
@@ -52,11 +53,13 @@ export default function BackgroundMusicPrompt() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const [preference, setPreference] = useState<Preference>(null);
+  const [promptHidden, setPromptHidden] = useState(false);
   const [promptOpen, setPromptOpen] = useState(false);
+  const [dontShowAgain, setDontShowAgain] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [playError, setPlayError] = useState<string | null>(null);
 
-  const shouldShowPrompt = useMemo(() => preference === null && promptOpen, [preference, promptOpen]);
+  const shouldShowPrompt = useMemo(() => !promptHidden && promptOpen, [promptHidden, promptOpen]);
 
   useEffect(() => {
     // Init audio once on mount.
@@ -82,18 +85,21 @@ export default function BackgroundMusicPrompt() {
   useEffect(() => {
     // Read saved preference.
     try {
-      const saved =
+      const savedPreference =
         (window.localStorage.getItem(STORAGE_KEY) as Preference) ?? null;
-      setPreference(saved);
-      // If no preference yet, show the prompt after a beat.
-      if (!saved) {
+      const savedPromptHidden =
+        window.localStorage.getItem(PROMPT_HIDDEN_KEY) === "true";
+      setPreference(savedPreference);
+      setPromptHidden(savedPromptHidden);
+      // Unless the user asked us not to, show the prompt after a beat.
+      if (!savedPromptHidden) {
         const t = window.setTimeout(() => setPromptOpen(true), 700);
         return () => window.clearTimeout(t);
       }
 
-      // If they previously enabled it, attempt to resume.
-      // Browsers may block this without a new user gesture; we fail silently.
-      if (saved === "on") {
+      // If they previously enabled it and asked not to be asked again,
+      // attempt to resume. Browsers may block this without a new user gesture; we fail silently.
+      if (savedPreference === "on") {
         void audioRef.current
           ?.play()
           .then(() => setPlayError(null))
@@ -104,6 +110,7 @@ export default function BackgroundMusicPrompt() {
       }
     } catch {
       setPreference(null);
+      setPromptHidden(false);
       setPromptOpen(true);
     }
   }, []);
@@ -117,8 +124,20 @@ export default function BackgroundMusicPrompt() {
     }
   };
 
+  const persistPromptHidden = (hidden: boolean) => {
+    setPromptHidden(hidden);
+    try {
+      window.localStorage.setItem(PROMPT_HIDDEN_KEY, String(hidden));
+    } catch {
+      // ignore
+    }
+  };
+
   const handleEnable = async () => {
     setPlayError(null);
+    if (dontShowAgain) {
+      persistPromptHidden(true);
+    }
     persistPreference("on");
     setPromptOpen(false);
 
@@ -130,6 +149,9 @@ export default function BackgroundMusicPrompt() {
   };
 
   const handleDisable = () => {
+    if (dontShowAgain) {
+      persistPromptHidden(true);
+    }
     persistPreference("off");
     setPromptOpen(false);
     audioRef.current?.pause();
@@ -210,6 +232,16 @@ export default function BackgroundMusicPrompt() {
                     No thanks
                   </button>
                 </div>
+
+                <label className="mt-4 flex items-center gap-2 text-sm text-muted cursor-pointer select-none">
+                  <input
+                    type="checkbox"
+                    checked={dontShowAgain}
+                    onChange={(e) => setDontShowAgain(e.target.checked)}
+                    className="size-4 rounded border-line accent-ink focus:outline-none focus:ring-2 focus:ring-ink/20"
+                  />
+                  Don&apos;t show again
+                </label>
 
                 <p className="mt-3 text-xs sm:text-sm text-muted">
                   Track: <span className="font-medium text-ink">{TRACK_LABEL}</span>
